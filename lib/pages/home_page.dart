@@ -33,71 +33,79 @@ class MyHomePage extends StatelessWidget {
       ),
       //body
 
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //text
-            Text(
-              "Categories",
-              style: GoogleFonts.nerkoOne(
-                color: Colors.black,
-                fontSize: 18.0,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              //text
+              Text(
+                "Categories",
+                style: GoogleFonts.nerkoOne(
+                  color: Colors.black,
+                  fontSize: 18.0,
+                ),
               ),
-            ),
 
-            const SizedBox(
-              height: 20.0,
-            ),
-            //categeries
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                CategoriesListTile(
-                  name: "Men",
-                ),
-                CategoriesListTile(
-                  name: "Women",
-                ),
-                CategoriesListTile(
-                  name: "Kids",
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            //text
-            Text(
-              "Categories",
-              style: GoogleFonts.nerkoOne(
-                color: Colors.black,
-                fontSize: 18.0,
+              const SizedBox(
+                height: 20.0,
               ),
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            //gridView
-            Expanded(
+              //categeries
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  CategoriesListTile(
+                    name: "Men",
+                  ),
+                  CategoriesListTile(
+                    name: "Women",
+                  ),
+                  CategoriesListTile(
+                    name: "Kids",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              //text
+              Text(
+                "Categories",
+                style: GoogleFonts.nerkoOne(
+                  color: Colors.black,
+                  fontSize: 18.0,
+                ),
+              ),
+            ]),
+          ),
+          //gridView
+          Expanded(
+            child: Center(
               child: Container(
+                clipBehavior: Clip.none,
+                width: 350.0,
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0))
-                ),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0))),
                 child: GridView.builder(
-                  itemCount: 16,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisSpacing: 20.0,
-                      crossAxisSpacing: 20.0,
-                      crossAxisCount: 2),
-                  itemBuilder: (context, index) {
-                    return const GridCardItem(name: "name");
-                  }),
+                    itemCount: 10,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            // mainAxisSpacing: 20.0,
+                            crossAxisSpacing: 5.0,
+                            crossAxisCount: 2),
+                    itemBuilder: (context, index) {
+                      return GridCardItem(
+                        name: "name",
+                        favroite: true,
+                      );
+                    }),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
